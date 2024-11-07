@@ -1,0 +1,75 @@
+@import "./variables.module.scss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input {
+  width: px-to-rem(555px);
+  height: px-to-rem(58px);
+  border-radius: px-to-rem(10px);
+  background-color: white;
+  border: none;
+}
+
+input::placeholder {
+  font-weight: 200;
+  opacity: 0.5;
+  color: $primary;
+  font-family: rubik;
+  font-size: px-to-rem(18px);
+  padding-left: 2rem;
+  margin-left: 2rem;
+}
+
+input[type=text] {
+  padding-left: 2rem;
+  font-weight: 200;
+  color: $primary;
+  font-family: rubik;
+  font-size: px-to-rem(18px);
+}
+
+button {
+  background-color: $primary;
+  height: px-to-rem(58px);
+  width: px-to-rem(58px);
+  border: none;
+  border-top-right-radius: px-to-rem(10px);
+  border-bottom-right-radius: px-to-rem(10px);
+  cursor: pointer;
+  margin-left: px-to-rem(-57px);
+}
