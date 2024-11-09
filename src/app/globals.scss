@@ -73,3 +73,34 @@ button {
   cursor: pointer;
   margin-left: px-to-rem(-57px);
 }
+
+p, h3, h2, h4, article, li, h1, span {
+  font-family: "Rubik";
+}
+
+h1 {
+  font-size: px-to-rem(32px);
+  font-weight: 700;
+  color: white;
+  letter-spacing: px-to-rem(.29px);
+  padding: 1rem;
+}
+
+h2 {
+  font-size: px-to-rem(14px);
+  font-weight: 400;
+  color: $primary;
+  letter-spacing: px-to-rem(1.75px);
+}
+
+span {
+  font-size: px-to-rem(26px);
+  font-weight: 400;
+  color: $primary;
+  letter-spacing: px-to-rem(0.23px);
+  line-height: px-to-rem(30px );
+}
+
+input {
+  outline: none;
+}

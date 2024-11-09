@@ -1,43 +1,34 @@
-import Image from "next/image";
+'use client';
+import React, { useState } from "react";
 import styles from "./page.module.css";
+import User from "../components/User";
+import MapComponent from "../components/MapComponent";
 
 export default function Home() {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         <h1>IP Address Tracker</h1>
-        <div className={styles.interface}>
-          <input type="text" placeholder="Search for any IP address or domain" />
-          <button></button>
-        </div>
-        
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+        <form className={styles.interface}>
+          <input
+            type="text"
+            placeholder="Search for any IP address or domain"
+            value={inputValue}
+            onChange={handleInputChange}
+          />
+          <button type="submit"></button>
+        </form>
       </main>
+      <div className={styles["map-container"]}>
+        <MapComponent />
+      </div>
+      <User />
     </div>
   );
 }
