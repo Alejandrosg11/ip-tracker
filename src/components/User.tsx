@@ -1,31 +1,28 @@
 import React from 'react';
 import styles from './User.module.scss';
+import { UserProps } from "../types/types";
 
-interface UserProps {
-    className?: string;
-}
-
-const User: React.FC<UserProps> = ({ className }) => {
+const User: React.FC<UserProps> = ({ ipData }) => {
     return (
         <section className={styles.layout}>
             <div className={styles.grow1}>
                 <h2>IP Address</h2>
-                <span>192.212.174.101</span>
+                <span>{ipData ? ipData.ip : "N/A"}</span>
             </div>
             <div>2</div>
             <div className={styles.grow1}>
                 <h2>Location</h2>
-                <span>Brooklyn, NY 10001</span>
+                <span>{ipData ? `${ipData.location.region}, ${ipData.location.country}` : "N/A"}</span>
             </div>
             <div>4</div>
             <div className={styles.grow1}>
                 <h2>Timezone</h2>
-                <span>UTC -05:00</span>
+                <span>{ipData ? `UTC ${ipData.location.timezone}` : "N/A"}</span>
             </div>
             <div>6</div>
             <div className={styles.grow1}>
                 <h2>ISP</h2>
-                <span>SpaceX Starlink</span>
+                <span>{ipData ? ipData.isp : "N/A"}</span>
             </div>
         </section>
 
