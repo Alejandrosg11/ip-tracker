@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IP Address Tracker
 
-## Getting Started
+IP Address Tracker es una aplicación web que permite a los usuarios buscar información de geolocalización basada en una dirección IP o un dominio. La aplicación muestra la ubicación en un mapa y proporciona detalles como la región, el país, la zona horaria y el ISP.
 
-First, run the development server:
+## Tecnologías Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Next.js](https://nextjs.org/) - Framework de React para aplicaciones web.
+- [React](https://reactjs.org/) - Biblioteca de JavaScript para construir interfaces de usuario.
+- [Leaflet](https://leafletjs.com/) - Biblioteca de JavaScript para mapas interactivos.
+- [geo.ipify.org](https://geo.ipify.org/) - API para obtener información de geolocalización basada en IP.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Características
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Búsqueda de información de geolocalización basada en dirección IP o dominio.
+- Visualización de la ubicación en un mapa interactivo.
+- Información detallada sobre la región, el país, la zona horaria y el ISP.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Instalación
 
-## Learn More
+1. Clona el repositorio:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://github.com/tu-usuario/ip-address-tracker.git
+   cd ip-address-tracker
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Instala las dependencias:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   npm install
 
-## Deploy on Vercel
+3. Crea un archivo .env.local en la raíz del proyecto y agrega tu clave de API de geo.ipify.org:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   NEXT_PUBLIC_API_KEY=tu_clave_de_api
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Inicia el servidor de desarrollo:
+
+   npm run dev
+
+5. Abre http://localhost:3000 en tu navegador para ver la aplicación.
+
+## Uso
+
+1. Ingresa una dirección IP o un dominio en el campo de búsqueda.
+2. Haz clic en el botón de búsqueda.
+3. La aplicación mostrará la información de geolocalización y la ubicación en el mapa.

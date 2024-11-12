@@ -1,7 +1,6 @@
 @import "../app/variables.module.scss";
 
 .layout {
-  width: 100%;
   display: flex;
   gap: 16px;
   justify-content: center;
@@ -16,7 +15,6 @@
   top: calc(280px - 80.5px); /* Posiciona el componente User */
   left: 50%;
   transform: translateX(-50%);
-  height: 161px; /* Altura fija */
   z-index: 1; /* Asegura que esté por encima de otros elementos */
 }
 
@@ -26,5 +24,37 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  align-self: baseline;
   width: 25%;
+  padding: 1.5rem;
+}
+
+.divider {
+    width: 2px;
+    height: 50%;
+    background-color: #ccc;
+    opacity: 0.3;
+  }
+
+@media (max-width: 768px) {
+    .layout {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        height: 35%;
+        justify-content: space-evenly;
+        padding: 1rem;
+        top: 166px; /* Posiciona el componente User */
+    }
+    .divider {
+        display: none;
+    }
+    .grow1 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        flex-grow: 0;
+    }
 }

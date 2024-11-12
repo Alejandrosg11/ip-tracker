@@ -48,7 +48,6 @@
 @media (max-width: 600px) {
   .page {
     padding: 0;
-    padding-bottom: 80px;
   }
 
   .main {
@@ -67,4 +66,26 @@
   display: flex;
   width: 100%;
   height: calc(100vh - 280px); /* Altura restante después de main */
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    height: calc(100vh - 300px); /* Altura restante después de main */
+  }
+}
+
+.errorTooltip {
+  color: white;
+  margin-top: 10px;
+  background-color: #a71606;
+  border-radius: 8px;
+  padding: 10px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.errorTooltip.show {
+  opacity: 1;
+  transform: translateY(0);
 }

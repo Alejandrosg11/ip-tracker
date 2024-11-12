@@ -16,3 +16,8 @@ export interface UserProps {
     className?: string;
     ipData?: IpData | null;
 }
+
+export interface MapComponentProps {
+    lat: number;
+    lng: number;
+}

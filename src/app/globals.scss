@@ -51,7 +51,7 @@ input::placeholder {
   color: $primary;
   font-family: rubik;
   font-size: px-to-rem(18px);
-  padding-left: 2rem;
+  padding-left: .5rem;
   margin-left: 2rem;
 }
 
@@ -91,14 +91,36 @@ h2 {
   font-weight: 400;
   color: $primary;
   letter-spacing: px-to-rem(1.75px);
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
 }
 
-span {
-  font-size: px-to-rem(26px);
-  font-weight: 400;
-  color: $primary;
-  letter-spacing: px-to-rem(0.23px);
-  line-height: px-to-rem(30px );
+@media (max-width: 768px) {
+  h1 {
+    font-size: px-to-rem(24px);
+  }
+  h2 {
+    font-size: px-to-rem(12px);
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0.5rem;
+  }
+  span {
+    font-size: px-to-rem(18px);
+    font-weight: 600;
+    color: $primary;
+    letter-spacing: px-to-rem(0.23px);
+    line-height: px-to-rem(8px );
+  }
+}
+@media (min-width: 769px) {
+  span {
+    font-size: 26px;
+    font-weight: 400;
+    color: $primary;
+    letter-spacing: px-to-rem(0.23px);
+    line-height: px-to-rem(30px );
+  }
 }
 
 input {
