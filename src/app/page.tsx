@@ -36,6 +36,12 @@ export default function Home() {
   
         const response = await fetch(url);
         const data = await response.json();
+
+        if (!data.location) {
+          setErrorMessage("Location data is missing in the API response");
+          throw new Error("Location data is missing in the API response");
+        }
+
         setIpData(data);
         setLat(data.location.lat);
         setLng(data.location.lng);
@@ -77,6 +83,11 @@ export default function Home() {
     try {
       const response = await fetch(url);
       const data = await response.json();
+
+      if (!data.location) {
+        throw new Error("Location data is missing in the API response");
+      }
+      
       setIpData(data);
       setLat(data.location.lat);
       setLng(data.location.lng);

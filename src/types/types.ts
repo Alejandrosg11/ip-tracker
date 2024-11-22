@@ -4,6 +4,8 @@ export interface Location {
     timezone: string;
     lat: number;
     lng: number;
+    city?: string;
+    postalCode?: string;
 }
   
 export interface IpData {
