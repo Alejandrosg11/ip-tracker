@@ -16,10 +16,6 @@ const isValidDomain = (value: string) => {
   return domainRegex.test(value);
 };
 
-const isMobileDevice = () => {
-  return /Mobi|Android/i.test(navigator.userAgent);
-};
-
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const [ipData, setIpData] = useState<IpData | null>(null);
@@ -43,12 +39,16 @@ export default function Home() {
         setIpData(data);
         setLat(data.location.lat);
         setLng(data.location.lng);
+
       } catch (error) {
+        setErrorMessage("Error fetching user IP or geolocation data. Please try again.");
         console.error("Error fetching user IP or geolocation data:", error);
       }
     };
-  
-    fetchUserIP();
+
+    if (typeof window !== 'undefined') {
+      fetchUserIP();
+    }
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -80,10 +80,11 @@ export default function Home() {
       setIpData(data);
       setLat(data.location.lat);
       setLng(data.location.lng);
-      if (isMobileDevice() && inputRef.current) {
+      if (typeof window !== 'undefined' && /Mobi|Android/i.test(navigator.userAgent) && inputRef.current) {
         inputRef.current.blur();
       }
     } catch (error) {
+      setErrorMessage("An error occurred while fetching data. Please try again.");
       console.error(error);
     }
   }
