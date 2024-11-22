@@ -58,3 +58,9 @@
         flex-grow: 0;
     }
 }
+
+@media (max-width: 1115px) {
+  .layout {
+    width: 90%;
+  }
+}

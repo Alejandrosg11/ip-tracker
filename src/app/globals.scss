@@ -63,6 +63,30 @@ input[type=text] {
   font-size: px-to-rem(18px);
 }
 
+@media (max-width: 768px) {
+  form {
+    width: 90%;
+  }
+  input {
+    width: 100%;
+  }
+  input::placeholder {
+    font-weight: 200;
+    opacity: 0.5;
+    color: $primary;
+    font-family: rubik;
+    font-size: px-to-rem(15px);
+    margin-left: 2rem;
+  }
+  input[type=text] {
+    font-weight: 200;
+    color: $primary;
+    font-family: rubik;
+    font-size: px-to-rem(15px);
+    padding-left: px-to-rem(10px);
+  }
+}
+
 button {
   background-color: $primary;
   height: px-to-rem(58px);
@@ -113,7 +137,15 @@ h2 {
     line-height: px-to-rem(8px );
   }
 }
-@media (min-width: 769px) {
+
+@media (min-width: 769px) and (max-width: 1115px) {
+  span {
+    font-size: px-to-rem(20px);
+    color: $primary;
+  }
+}
+
+@media (min-width: 1116px) {
   span {
     font-size: 26px;
     font-weight: 400;

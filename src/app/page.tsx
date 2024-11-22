@@ -1,19 +1,24 @@
 'use client';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import Image from 'next/image';
 import styles from "./page.module.css";
 import User from "../components/User";
 import MapComponent from "../components/MapComponent";
 import { IpData } from "../types/types";
 
-  const isValidIP = (value: string) => {
-    const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-    return ipRegex.test(value);
-  };
-  
-  const isValidDomain = (value: string) => {
-    const domainRegex = /^(?!:\/\/)([a-zA-Z0-9-_]+\.)+[a-zA-Z]{2,11}?$/;
-    return domainRegex.test(value);
-  };
+const isValidIP = (value: string) => {
+  const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+  return ipRegex.test(value);
+};
+
+const isValidDomain = (value: string) => {
+  const domainRegex = /^(?!:\/\/)([a-zA-Z0-9-_]+\.)+[a-zA-Z]{2,11}?$/;
+  return domainRegex.test(value);
+};
+
+const isMobileDevice = () => {
+  return /Mobi|Android/i.test(navigator.userAgent);
+};
 
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
@@ -21,6 +26,7 @@ export default function Home() {
   const [lat, setLat] = useState(19.449252);
   const [lng, setLng] = useState(-99.1638502);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const fetchUserIP = async () => {
@@ -74,6 +80,9 @@ export default function Home() {
       setIpData(data);
       setLat(data.location.lat);
       setLng(data.location.lng);
+      if (isMobileDevice() && inputRef.current) {
+        inputRef.current.blur();
+      }
     } catch (error) {
       console.error(error);
     }
@@ -85,13 +94,16 @@ export default function Home() {
         <h1>IP Address Tracker</h1>
         <form className={styles.interface} onSubmit={handleSubmit}>
           <input
+            ref={inputRef}
             type="text"
             placeholder="Search for any IP address or domain"
             value={inputValue}
             onFocus={handleOnFocus} 
             onChange={handleInputChange}
           />
-          <button type="submit"></button>
+          <button type="submit">
+            <Image src="/assets/icon-arrow.svg" alt="arrow" width={12} height={12} />
+          </button>
         </form>
         {errorMessage && <div className={`${styles.errorTooltip} ${styles.show}`}>{errorMessage}</div>}
       </main>
