@@ -36,7 +36,7 @@ const MapComponent: React.FC<MapComponentProps> = ({ lat, lng }) => {
     }
   }, [lat, lng]);
 
-  return <div id="map" className={styles.map}></div>;
+  return <div id="map" className={styles.map} data-testid="map-container"></div>;
 };
 
 export default MapComponent;
