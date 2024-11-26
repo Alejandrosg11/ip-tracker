@@ -10,7 +10,7 @@ export interface Location {
   
 export interface IpData {
     ip: string;
-    location: Location;
+    location: Location | null;
     isp: string;
 }
   

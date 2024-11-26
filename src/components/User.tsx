@@ -12,12 +12,12 @@ const User: React.FC<UserProps> = ({ ipData }) => {
             <div className={styles.divider}></div>
             <div className={styles.grow1}>
                 <h2>Location</h2>
-                <span>{ipData ? `${ipData.location.region}, ${ipData.location.country}` : "N/A"}</span>
+                <span>{ipData && ipData.location ? `${ipData.location.region}, ${ipData.location.country}` : "N/A"}</span>
             </div>
             <div className={styles.divider}></div>
             <div className={styles.grow1}>
                 <h2>Timezone</h2>
-                <span>{ipData ? `UTC ${ipData.location.timezone}` : "N/A"}</span>
+                <span>{ipData && ipData.location ? `UTC ${ipData.location.timezone}` : "N/A"}</span>
             </div>
             <div className={styles.divider}></div>
             <div className={styles.grow1}>
