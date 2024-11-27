@@ -16,7 +16,13 @@ const MapComponent: React.FC<MapComponentProps> = ({ lat, lng }) => {
       });
 
       if (mapRef.current === null) {
-        mapRef.current = L.map('map').setView([lat, lng], 16);
+        mapRef.current = L.map('map', {
+          center: [lat, lng],
+          zoom: 18,
+          zoomControl: true, 
+          dragging: true,
+          scrollWheelZoom: true,
+        });
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

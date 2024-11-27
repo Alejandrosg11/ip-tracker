@@ -9,9 +9,9 @@ $secondary: #979797;
 /*****************/
 /*  Rem Formula  */
 /*****************/
-$base-font-size: 16px;
-@function px-to-rem($px, $base: $base-font-size) {
-    @return math.div($px, $base) * 1rem;
+@function px-to-rem($px) {
+    $rem-base: 16px;
+    @return #{math.div($px, $rem-base)}rem;
 }
 
 /***********/

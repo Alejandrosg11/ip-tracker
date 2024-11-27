@@ -19,8 +19,8 @@ const isValidDomain = (value: string) => {
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const [ipData, setIpData] = useState<IpData | null>(null);
-  const [lat, setLat] = useState(19.449252);
-  const [lng, setLng] = useState(-99.1638502);
+  const [lat, setLat] = useState(0);
+  const [lng, setLng] = useState(0);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -96,7 +96,7 @@ export default function Home() {
       }
     } catch (error) {
       setErrorMessage("An error occurred while fetching data. Please try again.");
-      console.error(error);
+      console.log(error);
     }
   }
 
